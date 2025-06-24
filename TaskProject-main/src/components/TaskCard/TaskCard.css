@@ -1,0 +1,160 @@
+/* ===== TASKCARD.CSS ===== */
+.task-card {
+  background-color: #2d2d2d;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  border: 1px solid #404040;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-card:hover {
+  border-color: #525252;
+  transform: translateY(-2px);
+}
+
+.task-card.completed {
+  opacity: 0.7;
+  background-color: #1f2937;
+}
+
+.task-card-header {
+  margin-bottom: 12px;
+}
+
+.task-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.edit-title-input {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #404040;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.task-card-body {
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.task-description {
+  color: #d1d5db;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.edit-description-input {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #404040;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #ffffff;
+  font-size: 0.875rem;
+  resize: vertical;
+  min-height: 60px;
+}
+
+.task-card-footer {
+  margin-top: auto;
+}
+
+.task-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.task-date {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.task-priority {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+.priority-high {
+  background-color: #fca5a5;
+  color: #991b1b;
+}
+
+.priority-medium {
+  background-color: #fde68a;
+  color: #92400e;
+}
+
+.priority-low {
+  background-color: #a7f3d0;
+  color: #065f46;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-btn.completed {
+  background-color: #22c55e;
+  color: #ffffff;
+}
+
+.status-btn.incomplete {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+.edit-btn {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.delete-btn {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+.save-btn {
+  background-color: #22c55e;
+  color: #ffffff;
+}
+
+.cancel-btn {
+  background-color: #6b7280;
+  color: #ffffff;
+}
+
+.action-btn:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
