@@ -22,10 +22,10 @@ export default function Sidebar({ selectedCategory, onCategorySelect, stats, use
       count: stats.completed
     },
     {
-      id: 'do-it-now',
-      name: 'Do It Now',
-      icon: '🔒',
-      count: stats.doItNow
+      id: 'categories',
+      name: 'Categories',
+      icon: '📁',
+      count: stats.categories
     }
   ];
 

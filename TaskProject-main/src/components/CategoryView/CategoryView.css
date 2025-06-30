@@ -1,0 +1,428 @@
+/* CategoryView.css */
+
+/* Categories Overview */
+.categories-overview {
+  width: 100%;
+}
+
+.categories-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.categories-header h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.categories-header p {
+  color: #9ca3af;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Categories Stats Overview */
+.categories-stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding: 20px;
+  background: rgba(45, 45, 45, 0.3);
+  border-radius: 12px;
+  border: 1px solid #404040;
+}
+
+.stat-card-mini {
+  text-align: center;
+  padding: 16px 24px;
+  background: rgba(26, 26, 26, 0.5);
+  border-radius: 8px;
+  border: 1px solid #404040;
+  min-width: 120px;
+}
+
+.stat-card-mini .stat-number {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.stat-card-mini .stat-label {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Categories Grid */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.category-card {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  border: 2px solid #404040;
+  border-radius: 16px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--category-color);
+  opacity: 0.8;
+}
+
+.category-card:hover {
+  border-color: var(--category-color);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.category-card:hover::before {
+  opacity: 1;
+}
+
+.category-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.category-icon {
+  font-size: 1.75rem;
+  opacity: 0.9;
+}
+
+.category-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Category Stats */
+.category-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: rgba(26, 26, 26, 0.5);
+  border-radius: 12px;
+  border: 1px solid #404040;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Progress Mini */
+.category-progress-mini {
+  margin-bottom: 16px;
+}
+
+.progress-bar-mini {
+  height: 6px;
+  background: #404040;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill-mini {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.progress-text-mini {
+  font-size: 0.875rem;
+  color: #d1d5db;
+  font-weight: 500;
+}
+
+.category-card-footer {
+  text-align: center;
+  padding-top: 16px;
+  border-top: 1px solid #404040;
+}
+
+.view-tasks-text {
+  font-size: 0.875rem;
+  color: #6366f1;
+  font-weight: 500;
+}
+
+/* Categories Actions */
+.categories-actions {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #404040;
+}
+
+.add-category-btn {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  color: #000000;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.add-category-btn:hover {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
+}
+
+.add-category-btn .plus-icon {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+/* Category Detail View */
+.category-detail-view {
+  width: 100%;
+}
+
+.category-detail-header {
+  margin-bottom: 32px;
+}
+
+.back-to-categories-btn {
+  background: #374151;
+  color: #d1d5db;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+}
+
+.back-to-categories-btn:hover {
+  background: #4b5563;
+  transform: translateX(-2px);
+}
+
+.category-detail-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.category-detail-icon {
+  font-size: 2.5rem;
+}
+
+.category-detail-title h2 {
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.category-detail-count {
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Category Tasks Section */
+.category-tasks-section {
+  margin-top: 24px;
+}
+
+/* Category Progress Bar */
+.category-progress {
+  background: rgba(45, 45, 45, 0.5);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 32px;
+  border: 1px solid #404040;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 0.9375rem;
+  color: #d1d5db;
+}
+
+.progress-percentage {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.progress-bar-container {
+  height: 10px;
+  background: #404040;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+/* Empty Categories */
+.empty-categories {
+  text-align: center;
+  padding: 80px 20px;
+  color: #9ca3af;
+}
+
+.empty-categories .empty-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.6;
+}
+
+.empty-categories h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: #d1d5db;
+}
+
+.empty-categories p {
+  font-size: 1rem;
+  margin-bottom: 24px;
+  color: #9ca3af;
+}
+
+.create-first-task-btn {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.create-first-task-btn:hover {
+  background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .categories-stats {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .stat-card-mini {
+    min-width: 100px;
+    padding: 12px 20px;
+  }
+  
+  .category-card {
+    padding: 20px;
+  }
+  
+  .categories-header h2 {
+    font-size: 1.75rem;
+  }
+  
+  .category-detail-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .category-detail-title h2 {
+    font-size: 1.75rem;
+  }
+  
+  .category-stats {
+    padding: 12px;
+  }
+  
+  .stat-number {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .category-icon {
+    font-size: 1.5rem;
+  }
+  
+  .category-name {
+    font-size: 1.125rem;
+  }
+  
+  .category-detail-icon {
+    font-size: 2rem;
+  }
+}

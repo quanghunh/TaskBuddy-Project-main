@@ -1,32 +1,65 @@
- import React, { useState } from 'react';
+import React, { useState } from 'react';
 import './AddTaskModal.css';
 
-export default function AddTaskModal({ onAddTask, onClose }) {
+export default function AddTaskModal({ onAddTask, onClose, existingTasks = [] }) {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     priority: 'Medium',
     category: 'General'
   });
+  const [isCustomCategory, setIsCustomCategory] = useState(false);
+  const [customCategory, setCustomCategory] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (formData.title.trim() && formData.description.trim()) {
-      onAddTask(formData);
-      setFormData({
-        title: '',
-        description: '',
-        priority: 'Medium',
-        category: 'General'
-      });
-    }
+  // Get existing categories from tasks
+  const getExistingCategories = () => {
+    const categories = new Set(existingTasks.map(task => task.category || 'General'));
+    return Array.from(categories).sort();
   };
+
+  const existingCategories = getExistingCategories();
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (formData.title.trim() && formData.description.trim()) {
+      const finalCategory = isCustomCategory ? customCategory.trim() : formData.category;
+      onAddTask({
+        ...formData,
+        category: finalCategory || 'General'
+      });
+      setFormData({
+        title: '',
+        description: '',
+        priority: 'Medium',
+        category: 'General'
+      });
+      setIsCustomCategory(false);
+      setCustomCategory('');
+    }
+  };
+
+  const handleCategoryChange = (e) => {
+    if (e.target.value === 'custom') {
+      setIsCustomCategory(true);
+    } else {
+      setIsCustomCategory(false);
+      setFormData({
+        ...formData,
+        category: e.target.value
+      });
+    }
+  };
+
+  const handleCancelCustomCategory = () => {
+    setIsCustomCategory(false);
+    setCustomCategory('');
   };
 
   return (
@@ -81,18 +114,47 @@ export default function AddTaskModal({ onAddTask, onClose }) {
 
             <div className="form-group">
               <label htmlFor="category">Category</label>
-              <select
-                id="category"
-                name="category"
-                value={formData.category}
-                onChange={handleChange}
-              >
-                <option value="General">General</option>
-                <option value="Work">Work</option>
-                <option value="Personal">Personal</option>
-                <option value="Health">Health</option>
-                <option value="Learning">Learning</option>
-              </select>
+              <div className="category-input-container">
+                <select
+                  id="category"
+                  name="category"
+                  value={isCustomCategory ? 'custom' : formData.category}
+                  onChange={handleCategoryChange}
+                  disabled={isCustomCategory}
+                >
+                  <option value="General">General</option>
+                  <option value="Work">Work</option>
+                  <option value="Personal">Personal</option>
+                  <option value="Health">Health</option>
+                  <option value="Learning">Learning</option>
+                  {existingCategories.map(cat => (
+                    !['General', 'Work', 'Personal', 'Health', 'Learning'].includes(cat) && (
+                      <option key={cat} value={cat}>{cat}</option>
+                    )
+                  ))}
+                  <option value="custom">+ Create New Category</option>
+                </select>
+                
+                {isCustomCategory && (
+                  <div className="custom-category-input">
+                    <input
+                      type="text"
+                      value={customCategory}
+                      onChange={(e) => setCustomCategory(e.target.value)}
+                      placeholder="Enter new category name..."
+                      className="custom-category-field"
+                      autoFocus
+                    />
+                    <button
+                      type="button"
+                      className="cancel-custom-btn"
+                      onClick={handleCancelCustomCategory}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 

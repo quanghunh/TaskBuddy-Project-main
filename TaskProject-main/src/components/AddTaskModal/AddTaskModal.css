@@ -1,4 +1,4 @@
- .modal-overlay {
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -94,6 +94,48 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+}
+
+.category-input-container {
+  position: relative;
+}
+
+.custom-category-input {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.custom-category-field {
+  flex: 1;
+  background-color: #1a1a1a;
+  border: 1px solid #404040;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #ffffff;
+  font-size: 0.875rem;
+  transition: border-color 0.2s ease;
+}
+
+.custom-category-field:focus {
+  outline: none;
+  border-color: #4ade80;
+}
+
+.cancel-custom-btn {
+  background: #ef4444;
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cancel-custom-btn:hover {
+  background: #dc2626;
 }
 
 .form-actions {
